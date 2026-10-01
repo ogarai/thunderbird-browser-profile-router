@@ -5,6 +5,9 @@ that matches the message's email account. For example, links in mail to
 `me@work.com` open in the Chrome profile signed in as `me@work.com`, and
 links in mail to `me@gmail.com` open in your personal profile.
 
+**Get it from [addons.thunderbird.net](https://addons.thunderbird.net/thunderbird/addon/browser-profile-router/)**, then install the helper
+(see [Install](#install-linux--macos)).
+
 ![Options page: each account set to Auto, a specific browser profile, or the system browser](docs/screenshots/options.png)
 
 ![Choosing a profile: profiles from each installed browser, with the account each Chromium profile is signed in to](docs/screenshots/options-dropdown.png)
@@ -57,7 +60,8 @@ recipients against your identities.
 ./install.sh
 ```
 
-This registers the native host for Thunderbird. It writes
+This registers the native helper for Thunderbird, which the add-on needs to
+launch browsers. It writes
 `browser_profile_router.json` to `~/.mozilla/native-messaging-hosts/` and
 `~/.thunderbird/native-messaging-hosts/` (on macOS, the `Library/…Mozilla/NativeMessagingHosts`
 directories). It also builds `browser-profile-router.xpi`.
@@ -65,8 +69,9 @@ directories). It also builds `browser-profile-router.xpi`.
 Next:
 
 1. Restart Thunderbird.
-2. Go to **Add-ons and Themes → ⚙ → Install Add-on From File…** and pick
-   `browser-profile-router.xpi`.
+2. Install the add-on from [addons.thunderbird.net](https://addons.thunderbird.net/thunderbird/addon/browser-profile-router/), which also keeps
+   it updated. To use your own build instead, go to **Add-ons and Themes → ⚙ →
+   Install Add-on From File…** and pick `browser-profile-router.xpi`.
 3. Open the add-on's options and check that it reports "Native host connected".
 
 ### Thunderbird Conversations (and other add-ons that open links themselves)
