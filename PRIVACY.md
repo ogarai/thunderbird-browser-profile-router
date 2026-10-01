@@ -44,9 +44,10 @@ sent to the helper.
   in Thunderbird's extension storage.
 - **The current target** (browser and profile identifiers only) is written by
   the helper to `$XDG_RUNTIME_DIR/browser-profile-router/context.json`, a
-  per-user directory that is cleared when you log out. It is read by the
-  optional link handler (`thunderbird_url_handler.py`) for links opened by
-  other add-ons.
+  per-user directory that is cleared when you log out (or to
+  `~/.cache/browser-profile-router/` if `XDG_RUNTIME_DIR` is not set). It is
+  read by the optional link handler (`thunderbird_url_handler.py`) for links
+  opened by other add-ons.
 
 ## Removing your data
 
