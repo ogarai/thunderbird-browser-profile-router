@@ -101,7 +101,8 @@ def main():
     HANDLER.chmod(0o755)
     for profile in profiles:
         update(profile, args.uninstall)
-        print(("Removed handler from " if args.uninstall else "Registered handler in ") + str(profile / "handlers.json"))
+        action = "removed from" if args.uninstall else "set as Thunderbird's http/https link handler in"
+        print(f"{HANDLER_NAME}: {action} {profile / 'handlers.json'}")
 
 
 if __name__ == "__main__":
