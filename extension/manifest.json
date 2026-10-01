@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Profile Router",
+  "description": "Open links from messages in the browser profile that matches the email account.",
+  "version": "0.2.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "browser-profile-router@local",
+      "strict_min_version": "128.0"
+    }
+  },
+  "icons": {
+    "64": "icon.svg"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "accountsRead",
+    "messagesRead",
+    "scripting",
+    "menus",
+    "storage",
+    "nativeMessaging"
+  ]
+}

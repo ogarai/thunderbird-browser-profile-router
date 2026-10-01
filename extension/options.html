@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Browser Profile Router</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <h1>Browser Profile Router</h1>
+
+  <p id="host-status" class="status">Checking native host…</p>
+
+  <h2>Accounts</h2>
+  <p class="hint">
+    <strong>Auto</strong> picks the first browser profile signed in with one of the
+    account's identity addresses, and uses the fallback below if none is found.
+  </p>
+  <table>
+    <thead><tr><th>Account</th><th>Open links in</th></tr></thead>
+    <tbody id="accounts"></tbody>
+  </table>
+
+  <h2>Fallback</h2>
+  <p class="hint">Used for messages without a matching account or profile.</p>
+  <table>
+    <tbody><tr><td>Everything else</td><td id="fallback"></td></tr></tbody>
+  </table>
+
+  <p>
+    <button id="refresh">Refresh profiles</button>
+    <span id="saved" class="saved" hidden>Saved</span>
+  </p>
+
+  <script src="options.js"></script>
+</body>
+</html>
