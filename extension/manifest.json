@@ -2,10 +2,10 @@
   "manifest_version": 3,
   "name": "Browser Profile Router",
   "description": "Open links from messages in the browser profile that matches the email account.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "browser_specific_settings": {
     "gecko": {
-      "id": "browser-profile-router@local",
+      "id": "browser-profile-router@garai.ca",
       "strict_min_version": "128.0"
     }
   },

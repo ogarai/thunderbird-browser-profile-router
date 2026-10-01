@@ -96,6 +96,20 @@ If you move the repository, re-run `install.sh`.
 
 The host already knows the Windows install locations of the supported browsers.
 
+## Testing
+
+`tests/e2e/run.sh <thunderbird-install-dir>` runs an end-to-end test against
+any Thunderbird build, for example `/usr/lib/thunderbird` or an unpacked
+release tarball from archive.mozilla.org. Thunderbird runs headless inside a
+[bubblewrap](https://github.com/containers/bubblewrap) sandbox with a fresh
+profile, two test accounts, an empty `$HOME`, no network and no access to your
+home directory. A fake `google-chrome-canary` records launches instead of
+opening a browser. The test covers both link paths: a click in a message tab,
+and `windows.openDefaultBrowser` from another add-on going through the URL
+handler.
+
+It passes on Thunderbird 128.0esr (the minimum version), 140.17.0esr and 156.0.
+
 ## Limitations
 
 - Without `register_handler.py`, only links in the standard message reader
@@ -107,3 +121,12 @@ The host already knows the Windows install locations of the supported browsers.
   Chromium-family browsers record. For Firefox profiles, set the mapping by hand.
 - The host only opens `http`/`https` URLs, and only for profiles it found
   on disk.
+
+## Privacy
+
+Nothing leaves your computer. See [PRIVACY.md](PRIVACY.md) for exactly what is
+exchanged with the native helper.
+
+## License
+
+[Mozilla Public License 2.0](LICENSE).

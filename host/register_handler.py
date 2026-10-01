@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 """Make thunderbird_url_handler.py Thunderbird's handler for http/https links.
 
 This edits handlers.json in each Thunderbird profile (or the ones passed with
@@ -61,6 +65,9 @@ def is_running(profile):
 def update(profile, uninstall):
     path = profile / "handlers.json"
     data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    # Thunderbird discards the whole file unless defaultHandlersVersion is set.
+    data.setdefault("defaultHandlersVersion", {})
+    data.setdefault("mimeTypes", {})
     schemes = data.setdefault("schemes", {})
     for scheme in SCHEMES:
         if uninstall:

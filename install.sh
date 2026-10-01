@@ -1,10 +1,14 @@
 #!/bin/sh
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 # Installs the native messaging host for the current user (Linux and macOS)
 # and builds the add-on package (browser-profile-router.xpi).
 set -eu
 
 NAME=browser_profile_router
-EXTENSION_ID=browser-profile-router@local
+EXTENSION_ID=browser-profile-router@garai.ca
 ROOT=$(cd "$(dirname "$0")" && pwd)
 HOST="$ROOT/host/profile_router_host.py"
 
