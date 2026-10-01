@@ -5,6 +5,10 @@ that matches the message's email account. For example, links in mail to
 `me@work.com` open in the Chrome profile signed in as `me@work.com`, and
 links in mail to `me@gmail.com` open in your personal profile.
 
+![Options page: each account set to Auto, a specific browser profile, or the system browser](docs/screenshots/options.png)
+
+![Choosing a profile: profiles from each installed browser, with the account each Chromium profile is signed in to](docs/screenshots/options-dropdown.png)
+
 ## How it works
 
 - **`extension/`** is the Thunderbird MailExtension (Manifest V3, Thunderbird 128 or later).
