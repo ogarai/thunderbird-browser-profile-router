@@ -5,7 +5,19 @@
 
 # Installs the native messaging host for the current user (Linux and macOS)
 # and builds the add-on package (browser-profile-router.xpi).
+#
+#   ./install.sh                 helper only
+#   ./install.sh --link-handler  also route links opened by other add-ons
+#                                (e.g. Thunderbird Conversations); opt-in
+#                                because it changes Thunderbird's settings
 set -eu
+
+LINK_HANDLER=
+case "${1:-}" in
+  "") ;;
+  --link-handler) LINK_HANDLER=1 ;;
+  *) echo "usage: $0 [--link-handler]" >&2; exit 2 ;;
+esac
 
 NAME=browser_profile_router
 EXTENSION_ID=browser-profile-router@garai.ca
@@ -41,8 +53,11 @@ rm -f "$ROOT/browser-profile-router.xpi"
 (cd "$ROOT/extension" && zip -qr "$ROOT/browser-profile-router.xpi" .)
 echo "Built add-on: $ROOT/browser-profile-router.xpi"
 
-# Route links opened by other add-ons (e.g. Thunderbird Conversations).
-if ! python3 "$ROOT/host/register_handler.py"; then
+echo
+if [ -z "$LINK_HANDLER" ]; then
+  echo "Optional: to route links opened by other add-ons (e.g. Thunderbird"
+  echo "Conversations), quit Thunderbird and run: $0 --link-handler"
+elif ! python3 "$ROOT/host/register_handler.py"; then
   echo "Thunderbird's link handler was NOT registered (see above). Fix that and run:"
   echo "  $ROOT/host/register_handler.py"
 fi

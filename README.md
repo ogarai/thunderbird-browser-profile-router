@@ -76,11 +76,12 @@ Next:
 
 ### Thunderbird Conversations (and other add-ons that open links themselves)
 
-`install.sh` registers this automatically if Thunderbird is closed when you
-run it. Otherwise, quit Thunderbird and run:
+This is opt-in because it changes a Thunderbird setting. Quit Thunderbird, then
+run either:
 
 ```sh
-host/register_handler.py              # all profiles in ~/.thunderbird
+./install.sh --link-handler           # helper + link handler
+host/register_handler.py              # link handler only, all profiles in ~/.thunderbird
 host/register_handler.py --uninstall  # undo
 ```
 
